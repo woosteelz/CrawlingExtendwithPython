@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>일자리 찾기</title>
+    <style>
+      section {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>검색 결과입니다.</h1>
+    <h3>{{searchingBy}}에 관련된 일자리를 {{resultsNum}}개 찾았습니다.</h3>
+    <a href= "/export?word={{searchingBy}}">csv 파일로 추출</a>
+    <section>
+      <h4>공고 이름</h4>
+      <h4>회사 명</h4>
+      <h4>위치</h4>
+      <h4>지원 링크</h4>
+      {% for job in jobs %}
+      <span>{{job.title}}</span>
+      <span>{{job.company}}</span>
+      <span>{{job.location}}</span>
+      <a href="{{job.link}}" target = "_blank"">Apply</a>
+      {% endfor %}
+    <section>
+  </body>
+</html>
